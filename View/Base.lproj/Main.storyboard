@@ -141,6 +141,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="xkA-NI-oK9" id="5HZ-Sh-d2F"/>
+                        <outlet property="tipLbl" destination="VEX-KB-gGy" id="zHZ-Du-sdv"/>
+                        <outlet property="tipPercentageLbl" destination="yri-YU-rYU" id="Vy2-50-KlD"/>
+                        <outlet property="tipPercentageSlider" destination="MJS-JB-o6m" id="5tE-sy-6lI"/>
+                        <outlet property="totalLbl" destination="49h-oO-9VA" id="2LL-6X-Lkp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
