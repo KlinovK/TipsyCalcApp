@@ -17,12 +17,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLbl: UILabel!
     @IBOutlet weak var totalLbl: UILabel!
     
+    var tip = TipModel(billAmount: 0.0, tipPercent: 0.0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
   
-
-
+    @IBAction func billAmountWasChange(_ sender: Any) {
+        print("my value changed")
+    }
+    
+    @IBAction func tipPercentageWsChanged(_ sender: Any) {
+        print(tipPercentageSlider.value)
+    }
+    
 }
 

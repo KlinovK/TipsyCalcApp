@@ -50,6 +50,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                        <connections>
+                                            <action selector="billAmountWasChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="H9J-bh-duM"/>
+                                        </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9MR-am-LRF">
                                         <rect key="frame" x="0.0" y="90" width="315" height="67"/>
@@ -63,8 +66,11 @@
                                                 <color key="textColor" red="0.32156862745098036" green="0.67843137254901964" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MJS-JB-o6m">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.14999999999999999" minValue="0.10000000000000001" maxValue="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="MJS-JB-o6m">
                                                 <rect key="frame" x="48" y="0.0" width="269" height="68"/>
+                                                <connections>
+                                                    <action selector="tipPercentageWsChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="29Y-MF-zFb"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
