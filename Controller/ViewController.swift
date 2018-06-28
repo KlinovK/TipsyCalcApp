@@ -26,9 +26,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTipCalculationValues()
-        setWayAmountValues()
         updateUI()
-        updateUIforWayUnit()
     }
 
   
@@ -36,44 +34,37 @@ class ViewController: UIViewController {
         tip.tipPercent = Double(tipPercentageSlider.value)
         tip.billAmount = ((textField.text)! as NSString).doubleValue
         tip.calculateTip()
+        tip.wayAmount = Double(wayAmountSlider.value)
+        tip.billAmount = ((textField.text)! as NSString).doubleValue
+        tip.calculateMyPay()
     }
     
     func updateUI(){
         tipLbl.text = String(format: "$%0.2f", tip.tipAmount)
         totalLbl.text = String(format: "$%0.2f", tip.totalAmount)
         tipPercentageLbl.text = "Tip:\(Int(tipPercentageSlider.value * 100))%"
-        
-    }
-    
-    
-    func setWayAmountValues(){
-      tip.wayAmount = Double(wayAmountSlider.value)
-      tip.billAmount = ((textField.text)! as NSString).doubleValue
-        tip.calculateMyPay()
-    }
-    
-    func updateUIforWayUnit(){
         wayAmountLbl.text = "\(Int(wayAmountSlider.value))-Way Split:"
         myPayLbl.text = String(format: "$%0.2f", tip.myPay)
-        
     }
+    
+    
+   
+    
+   
     
     
     @IBAction func wayAmountWasChange(_ sender: Any) {
-        setWayAmountValues()
-        updateUIforWayUnit()
+        setTipCalculationValues()
+        updateUI()
     }
     
     
     @IBAction func billAmountWasChange(_ sender: Any) {
         setTipCalculationValues()
-        setWayAmountValues()
         updateUI()
-        updateUIforWayUnit()
     }
     
     @IBAction func tipPercentageWsChanged(_ sender: Any) {
-        
         setTipCalculationValues()
         updateUI()
     }
