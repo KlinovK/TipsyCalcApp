@@ -17,19 +17,58 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLbl: UILabel!
     @IBOutlet weak var totalLbl: UILabel!
     
-    var tip = TipModel(billAmount: 0.0, tipPercent: 0.0)
+    @IBOutlet weak var wayAmountLbl: UILabel!
+    @IBOutlet weak var wayAmountSlider: UISlider!
+    
+    var tip = TipModel(billAmount: 0.0, tipPercent: 0.0, wayAmount: 0.0 )
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTipCalculationValues()
+        updateUI()
     }
 
   
+    func setTipCalculationValues(){
+        tip.tipPercent = Double(tipPercentageSlider.value)
+        tip.billAmount = ((textField.text)! as NSString).doubleValue
+        tip.calculateTip()
+    }
+    
+    func updateUI(){
+        tipLbl.text = String(format: "$%0.2f", tip.tipAmount)
+        totalLbl.text = String(format: "$%0.2f", tip.totalAmount)
+        tipPercentageLbl.text = "Tip:\(Int(tipPercentageSlider.value * 100))%"
+        
+    }
+    
+    
+    func setWayAmountValues(){
+      tip.wayAmount = Double(wayAmountSlider.value)
+      tip.billAmount = ((textField.text)! as NSString).doubleValue
+        tip.calculateWayToPay()
+    }
+    
+    func updateUIforWayUnit(){
+        
+        
+    }
+    
+    
+    @IBAction func wayAmountWasChange(_ sender: Any) {
+        
+    }
+    
+    
     @IBAction func billAmountWasChange(_ sender: Any) {
-        print("my value changed")
+        setTipCalculationValues()
+        updateUI()
     }
     
     @IBAction func tipPercentageWsChanged(_ sender: Any) {
-        print(tipPercentageSlider.value)
+        
+        setTipCalculationValues()
+        updateUI()
     }
     
 }
