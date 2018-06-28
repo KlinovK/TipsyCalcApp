@@ -19,13 +19,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var wayAmountLbl: UILabel!
     @IBOutlet weak var wayAmountSlider: UISlider!
+    @IBOutlet weak var myPayLbl: UILabel!
     
-    var tip = TipModel(billAmount: 0.0, tipPercent: 0.0, wayAmount: 0.0 )
+    var tip = TipModel(billAmount: 0.0, tipPercent: 0.0, myPay: 0.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTipCalculationValues()
+        setWayAmountValues()
         updateUI()
+        updateUIforWayUnit()
     }
 
   
@@ -46,23 +49,27 @@ class ViewController: UIViewController {
     func setWayAmountValues(){
       tip.wayAmount = Double(wayAmountSlider.value)
       tip.billAmount = ((textField.text)! as NSString).doubleValue
-        tip.calculateWayToPay()
+        tip.calculateMyPay()
     }
     
     func updateUIforWayUnit(){
-        
+        wayAmountLbl.text = "\(Int(wayAmountSlider.value))-Way Split:"
+        myPayLbl.text = String(format: "$%0.2f", tip.myPay)
         
     }
     
     
     @IBAction func wayAmountWasChange(_ sender: Any) {
-        
+        setWayAmountValues()
+        updateUIforWayUnit()
     }
     
     
     @IBAction func billAmountWasChange(_ sender: Any) {
         setTipCalculationValues()
+        setWayAmountValues()
         updateUI()
+        updateUIforWayUnit()
     }
     
     @IBAction func tipPercentageWsChanged(_ sender: Any) {

@@ -15,6 +15,7 @@ class TipModel {
     private var _tipAmount: Double = 0
     private var _totalAmount: Double = 0
     private var _wayAmount: Double = 0
+    private var _myPay: Double = 0
 
     var billAmount: Double {
     get {
@@ -42,6 +43,10 @@ class TipModel {
         }
     }
     
+    var myPay: Double {
+        return _myPay
+    }
+    
     
     var tipAmount: Double {
         return _tipAmount
@@ -50,10 +55,10 @@ class TipModel {
         return _totalAmount
     }
 
-    init(billAmount: Double, tipPercent: Double, wayAmount: Double){
+    init(billAmount: Double, tipPercent: Double, myPay: Double){
         self._billAmount = billAmount
         self._tipPercent = tipPercent
-        self._wayAmount = wayAmount
+        self._myPay = myPay
     }
     
     func calculateTip() {
@@ -61,7 +66,7 @@ class TipModel {
         _totalAmount = billAmount + tipAmount
     }
     
-    func calculateWayToPay() {
-        _wayAmount = totalAmount / wayAmount
+    func calculateMyPay() {
+        _myPay = totalAmount / wayAmount
     }
 }
